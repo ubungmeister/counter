@@ -4,7 +4,6 @@ import {Counter} from "./components/Counter";
 
 
 function App() {
-  const maxValue = 10
   const [countSum, setCountSum] = useState(0)
 
   useEffect(()=>{
@@ -17,24 +16,21 @@ function App() {
 
   useEffect(()=>{
     localStorage.setItem('counterValue', JSON.stringify(countSum))
+    //potrebujeme na localStorage string proto JSON..=toString
   }, [countSum])
 
-  const counter = (value:number)=>{
-    setCountSum(countSum + value)
+  const counter = ()=>{
+    setCountSum(countSum +1)
   }
-  const reset = (value:number)=>{
-    setCountSum(0)
+  const mines = ()=>{
+    setCountSum(countSum -1)
   }
-  if (countSum > maxValue){
-    setCountSum(0)
-  }
-
 
   return (
-      <div className='body' >
+      <div>
         <Counter
             counter={counter}
-            reset={reset}
+            mines={mines}
             getValue= {countSum}
         />
       </div>
