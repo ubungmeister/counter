@@ -5,8 +5,6 @@ import {NavLink} from "react-router-dom";
 type PropsType = {
     maxValue: (value: number) => void
     startValue: (value: number) => void
-    // getStartValue: number
-    // getMaxvalue: number
 }
 
 
@@ -16,16 +14,17 @@ export const Settings = (props: PropsType) => {
     const [maxValue, SetMaxValue] = useState(1)
     const [isActive, setIsActive] = useState(false);
 
-    const onChangehandler=(value:number)=>{
-        value > 0? setStartValue(value) : setStartValue(0)
+    const onChangehandler = (value: number) => {
+        value > 0 ? setStartValue(value) : setStartValue(0)
     }
 
-    const onClickHandler=()=>{
-        if(maxValue>startValue){
+    const onClickHandler = () => {
+        if (maxValue > startValue) {
             props.maxValue(maxValue)
             props.startValue(startValue)
+        } else {
+            return 'Check your start value'
         }
-        else{ return 'Check your start value'}
     }
 
     return (
@@ -33,23 +32,21 @@ export const Settings = (props: PropsType) => {
             <DivWrapper>
                 <DivTodoContainer>
                     <DivConfig>
-                    <span>Max value: </span>
-                    <input
-                        onChange={(e) => SetMaxValue(+e.currentTarget.value)}
-                        value={maxValue}  type="number"
-                    />
+                        <span>Max value: </span>
+                        <input
+                            onChange={(e) => SetMaxValue(+e.currentTarget.value)}
+                            value={maxValue} type="number"
+                        />
                     </DivConfig>
                     <DivConfig>
-                    <span>Start value: </span>
-                    <input onChange={(e)=>onChangehandler(+e.currentTarget.value)}
-                           value={startValue} type="number"
-                    />
+                        <span>Start value: </span>
+                        <input onChange={(e) => onChangehandler(+e.currentTarget.value)}
+                               value={startValue} type="number"
+                        />
                     </DivConfig>
                     <ErrorTxt>{onClickHandler()}</ErrorTxt>
-                <DivConfig>
-                    <DivButton onClick={onClickHandler}>set</DivButton>
-                    <DivButton><NavLink style={{textDecoration: 'none',color:"black"}} to='/'>back</NavLink></DivButton>
-                </DivConfig>
+                    <DivButton><NavLink style={{textDecoration: 'none', color: "black"}}
+                                        to='/'>back</NavLink></DivButton>
                 </DivTodoContainer>
             </DivWrapper>
         </div>
@@ -85,7 +82,7 @@ const DivTodoContainer = styled.div`
 export const DivConfig = styled.div`
   display: flex;
   margin-top: 10px;
-  padding-top:10px;
+  padding-top: 10px;
   font-size: 20px;
   gap: 20px;
   font-family: "Lucida Sans";
@@ -102,9 +99,9 @@ export const DivButton = styled.div`
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  cursor:pointer;
+  cursor: pointer;
   box-shadow: rgba(80, 220, 251, 0.08) 6px 6px 7px 0px;
-  
+
 `
 
 

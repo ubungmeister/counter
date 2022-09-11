@@ -23,12 +23,12 @@ function App() {
     }, [countSum])
 
     const counter = () => {
-        if(countSum < value) {
+        if (countSum < value) {
             setCountSum(countSum + 1)
         }
     }
     const mines = () => {
-        if(countSum >0){
+        if (countSum > 0) {
             setCountSum(countSum - 1)
         }
     }
@@ -37,8 +37,8 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-            <Route index element={<Counter  counter={counter}  mines={mines}  getValue={countSum}/>}/>
-            <Route path="settings" element={<Settings startValue={setCountSum} maxValue={maxValue}/>}/>
+                <Route index element={<Counter counter={counter} mines={mines} getValue={countSum}/>}/>
+                <Route path="settings" element={<Settings startValue={setCountSum} maxValue={maxValue}/>}/>
             </Routes>
         </BrowserRouter>
     );

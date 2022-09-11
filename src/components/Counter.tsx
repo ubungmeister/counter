@@ -5,35 +5,35 @@ import {NavLink} from "react-router-dom";
 
 
 type PropsType = {
-    counter: ()=>void
-    mines:()=>void
-    getValue:number
+    counter: () => void
+    mines: () => void
+    getValue: number
 }
 
-export const Counter = (props:PropsType) => {
+export const Counter = (props: PropsType) => {
 
     return (
         <DivWrapper>
             <DivTodoContainer>
-            <DivValue>
-                <AnimatedNumber
-                    animateToNumber={props.getValue}
-                    fontStyle={{ fontSize: 40, color: "#2D3142"}}
-                />
-            </DivValue>
+                <DivValue>
+                    <AnimatedNumber
+                        animateToNumber={props.getValue}
+                        fontStyle={{fontSize: 40, color: "#2D3142"}}
+                    />
+                </DivValue>
                 <DivConfig>
                     <DivMyContainer>
                         <DivButton onClick={() => props.counter()}>+</DivButton>
-                        </DivMyContainer>
+                    </DivMyContainer>
                     <DivMyContainer>
                         <DivButton onClick={() => props.mines()}>-</DivButton>
                     </DivMyContainer>
-                     <DivMyContainer>
-                            <DivSettings>
-                                 <NavLink style={{textDecoration: 'none'}} to='settings'>
-                                     <h2>⚙️</h2>
-                                 </NavLink></DivSettings>
-                     </DivMyContainer>
+                    <DivMyContainer>
+                        <DivSettings>
+                            <NavLink style={{textDecoration: 'none'}} to='settings'>
+                                <h2>⚙️</h2>
+                            </NavLink></DivSettings>
+                    </DivMyContainer>
                 </DivConfig>
             </DivTodoContainer>
         </DivWrapper>
@@ -95,7 +95,7 @@ export const DivButton = styled.div`
   padding: 25px;
   box-shadow: rgba(80, 220, 251, 0.08) 6px 6px 7px 0px;
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
 `
 export const DivSettings = styled.div`
   display: flex;
